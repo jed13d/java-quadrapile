@@ -26,6 +26,7 @@ public class GWindow extends JFrame {
     public static GWindow newWindow() {
         GWindow.setDefaultLookAndFeelDecorated(true);
         GWindow rv = new GWindow();
+        
         rv.setDefaultCloseOperation(GWindow.EXIT_ON_CLOSE);
         rv.setSize(Constants.getWindowDim());
         rv.initMenuBar();
@@ -92,10 +93,8 @@ public class GWindow extends JFrame {
 
     private void newGame() {
         this.killTimer();
-        this.remove(this.gpanel);
-        this.gpanel = GPanel.newGPanel(this);
+        this.gpanel.newGame();
         this.levelIndex = 0;
-        this.add(this.gpanel);
         this.initTimer();
     }// ---
 

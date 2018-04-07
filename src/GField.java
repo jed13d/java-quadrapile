@@ -19,6 +19,7 @@ public class GField {
     private Boolean gameover;
     private Integer pointsEarned;
     private Boolean fastDrop;
+    private Boolean highPressure;
 
     // ----- Constructors =======================
     private GField() {
@@ -26,7 +27,7 @@ public class GField {
         GAME_FIELD = new Integer[Constants.getGameFieldRows()][Constants.getGameFieldCols()];
         active = null;
         activeX = activeY = rotation = firstFullLine = pointsEarned = consecFullLines = 0;
-        gameover = fastDrop = activePieceLanded = Boolean.FALSE;
+        gameover = fastDrop = activePieceLanded = highPressure = Boolean.FALSE;
     }// ---
 
     // ----- Builder ============================
@@ -39,6 +40,15 @@ public class GField {
     }// ---
 
     // ----- Private Methods ====================
+    private void checkForHighStress() {
+       this.highPressure = Boolean.FALSE;
+       for( int i = 0; i < this.GAME_FIELD[Constants.getHighStressRow()].length; i++ ) {
+          if( this.GAME_FIELD[Constants.getHighStressRow()][i] != 0 ) {
+             this.highPressure = Boolean.TRUE;
+          }
+       }
+    }// ---
+
     /**
      * Removes filled lines and moves down all the lines above the removed lines
      */
@@ -262,6 +272,10 @@ public class GField {
         return rv;
     }// ---
 
+    public Boolean isUnderPressure() {
+       return this.highPressure;
+    }// ---
+
     /**
      * Moves the active piece down on the field.
      * @param manually Moves the piece down on Player's command, and makes sure
@@ -328,6 +342,7 @@ public class GField {
                 while(this.filledLines()) {
                     this.clearFullLines();
                 }
+                this.checkForHighStress();
             }
 
         } else {

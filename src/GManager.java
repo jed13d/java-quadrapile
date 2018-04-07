@@ -54,6 +54,10 @@ public class GManager {
         return rv;
     }// ---
 
+    public Boolean isUnderPressure() {
+       return this.gfield.isUnderPressure();
+    }// ---
+
     public Boolean levelUp() {
         return this.ifield.levelUp();
     }// ---

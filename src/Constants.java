@@ -26,6 +26,8 @@ public class Constants {
    private static final Dimension GPANEL_DIM = new Dimension(GPANEL_WIDTH, GPANEL_HEIGHT);
 
    // -- Game Field Settings
+   private static final Integer HIGH_STRESS_ROW = 4;
+
    private static final Color GAME_FIELD_BGCOLOR = new Color(0, 0, 0);
    private static final Color GAME_FIELD_BORDER_COLOR = new Color(255, 255, 0);
 
@@ -90,6 +92,10 @@ public class Constants {
    private static final Integer DEFAULT_SPAWN_X = 4;
    private static final Integer DEFAULT_SPAWN_Y = 0;
    private static final Integer DEFAULT_ROTATION = 0;
+
+   // -- Music
+   private static final String THEME_A_LOCATION = "resources/ThemeA.midi";
+   private static final String THEME_B_LOCATION = "resources/ThemeB.midi";
 
    // ----- Enums ==============================
    public static enum Level {
@@ -380,6 +386,10 @@ public class Constants {
       return SQUARE_SIZE;
    }// ---
 
+   public static Integer getHighStressRow() {
+      return HIGH_STRESS_ROW;
+   }
+
    public static Color getGameFieldBGColor() {
       return GAME_FIELD_BGCOLOR;
    }// ---
@@ -558,6 +568,14 @@ public class Constants {
 
    public static Integer getDefaultRotation() {
       return DEFAULT_ROTATION;
+   }// ---
+
+   public static String getThemeALocation() {
+      return THEME_A_LOCATION;
+   }// ---
+
+   public static String getThemeBLocation() {
+      return THEME_B_LOCATION;
    }// ---
 
    public static ArrayList< Level > getLevels() {
