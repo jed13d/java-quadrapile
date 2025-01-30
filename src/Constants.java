@@ -94,8 +94,8 @@ public class Constants {
    private static final Integer DEFAULT_ROTATION = 0;
 
    // -- Music
-   private static final String THEME_A_LOCATION = "resources/ThemeA.midi";
-   private static final String THEME_B_LOCATION = "resources/ThemeB.midi";
+   private static final String THEME_A_LOCATION = "src/resources/ThemeA.midi";
+   private static final String THEME_B_LOCATION = "src/resources/ThemeB.midi";
 
    // ----- Enums ==============================
    public static enum Level {
